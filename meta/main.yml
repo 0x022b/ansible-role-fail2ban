@@ -1,0 +1,25 @@
+---
+galaxy_info:
+  role_name: fail2ban
+  author: Janne K
+  description: Configures fail2ban package and service
+  license: license (MIT)
+  min_ansible_version: 2.9
+  platforms:
+    - name: EL
+      versions:
+        - 7
+        - 8
+    - name: Fedora
+      versions:
+        - 31
+  galaxy_tags:
+    - centos
+    - fail2ban
+    - fedora
+    - redhat
+    - rhel
+
+dependencies:
+  - role: 0x022b.epel
+  - role: 0x022b.firewalld

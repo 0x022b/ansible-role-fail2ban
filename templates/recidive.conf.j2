@@ -1,0 +1,15 @@
+# {{ ansible_managed }}
+
+[recidive]
+{% if fail2ban_jail_recidive_enabled %}
+enabled  = {{ fail2ban_jail_recidive_enabled | string | lower }}
+{% endif %}
+{% if fail2ban_jail_recidive_bantime %}
+bantime  = {{ fail2ban_jail_recidive_bantime }}
+{% endif %}
+{% if fail2ban_jail_recidive_findtime %}
+findtime = {{ fail2ban_jail_recidive_findtime }}
+{% endif %}
+{% if fail2ban_jail_recidive_maxretry %}
+maxretry = {{ fail2ban_jail_recidive_maxretry }}
+{% endif %}

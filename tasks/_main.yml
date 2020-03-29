@@ -1,0 +1,38 @@
+---
+- name: Configure fail2ban package
+  package:
+    name: "{{ fail2ban_package_name }}"
+    state: "{{ fail2ban_package_state }}"
+
+- name: Configure fail2ban service
+  service:
+    name: "{{ fail2ban_service_name }}"
+    state: "{{ fail2ban_service_state }}"
+    enabled: "{{ fail2ban_service_enabled }}"
+
+- name: Customise global fail2ban definitions
+  template:
+    src: templates/jail.local.j2
+    dest: /etc/fail2ban/jail.local
+    owner: root
+    group: root
+    mode: a=r,u+w
+  notify: Restart fail2ban service
+
+- name: Customise sshd jail definitions
+  template:
+    src: templates/sshd.conf.j2
+    dest: /etc/fail2ban/jail.d/90-sshd.conf
+    owner: root
+    group: root
+    mode: a=r,u+w
+  notify: Restart fail2ban service
+
+- name: Customise recidive jail definitions
+  template:
+    src: templates/recidive.conf.j2
+    dest: /etc/fail2ban/jail.d/99-recidive.conf
+    owner: root
+    group: root
+    mode: a=r,u+w
+  notify: Restart fail2ban service

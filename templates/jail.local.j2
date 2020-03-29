@@ -1,0 +1,15 @@
+# {{ ansible_managed }}
+
+[DEFAULT]
+{% if fail2ban_jail_default_ignoreip is iterable and var is not string %}
+ignoreip = {{ fail2ban_jail_default_ignoreip | join(" ") }}
+{% endif %}
+{% if fail2ban_jail_default_bantime %}
+bantime  = {{ fail2ban_jail_default_bantime }}
+{% endif %}
+{% if fail2ban_jail_default_findtime %}
+findtime = {{ fail2ban_jail_default_findtime }}
+{% endif %}
+{% if fail2ban_jail_default_maxretry %}
+maxretry = {{ fail2ban_jail_default_maxretry }}
+{% endif %}
