@@ -73,6 +73,12 @@ Variables to control recidive jail settings.
     - role: 0x022b.fail2ban
 ```
 
+## Versioning
+
+This project uses [Semantic Versioning][semver].
+
 ## License
 
 MIT
+
+[semver]: https://semver.org/
