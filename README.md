@@ -1,5 +1,7 @@
 # Ansible Role: fail2ban
 
+![Ansible Galaxy](https://github.com/0x022b/ansible-role-fail2ban/workflows/Ansible%20Galaxy/badge.svg)
+
 Ansible role that configures fail2ban package and service.
 
 ## Requirements
